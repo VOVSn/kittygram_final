@@ -1,4 +1,8 @@
 ![Build Status](https://github.com/VOVSn/kittygram_final/actions/workflows/main.yml/badge.svg)
+[![Python Version](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
+[![Django](https://img.shields.io/badge/django-3.2.3-green.svg)](https://www.djangoproject.com/)
+[![Django REST Framework](https://img.shields.io/badge/drf-3.12.4-blueviolet.svg)](https://www.django-rest-framework.org/)
+[![Gunicorn](https://img.shields.io/badge/gunicorn-20.1.0-green.svg)](https://gunicorn.org/)
 
 
 ### Описание проекта:
