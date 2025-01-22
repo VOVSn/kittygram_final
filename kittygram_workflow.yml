@@ -2,8 +2,8 @@ name: Main KittyGram Workflow
 
 on:
   push:
-    branches:
-      - main
+    branches: 
+      - '**'
 
 jobs:
 
@@ -19,13 +19,16 @@ jobs:
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, 3.10, 3.11]
     steps:
       - name: Check out code
         uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.9
+          python-version: ${{ matrix.python-version}}
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -165,4 +168,9 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: Deploy kittygram successful!
+          message: |
+            Deploy successful!
+            Pushed by: ${{ github.actor }}
+            Commit message: ${{ github.event.commits[0].message }}
+            [View commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+
