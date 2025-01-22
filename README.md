@@ -21,6 +21,12 @@
 
 [Django rest framework](https://www.django-rest-framework.org/)
 
+Для промышленной реализации проекта используются:
+
+[Gunicorn](https://docs.gunicorn.org/en/stable/index.html)
+
+[Nginx](https://nginx.org/en/docs/)
+
 Для контейнеризации и сборки образов используются:
 
 [Docker](https://docs.docker.com/manuals/)
@@ -31,11 +37,7 @@
 
 [Git Hub Actions](https://docs.github.com/ru/actions/about-github-actions/understanding-github-actions)
 
-[Gunicorn](https://docs.gunicorn.org/en/stable/index.html)
-
-[Nginx](https://nginx.org/en/docs/)
-
-### В бэкэнде проекта использовались следующие библиотеки
+### В бэкэнде проекта использовались следующие библиотеки:
 Django, djangorestframework, djoser, webcolors, psycopg2-binary,
 Pillow, pytest, pytest-django, pytest-pythonpath, PyYAML
  версии библиотек указаны в requirements.txt
@@ -98,3 +100,66 @@ python3 manage.py runserver
 ```
 
 ###
+# Примеры запросов:
+
+### Получение списка cats:
+
+```
+curl -X GET \
+  http://kittygram.vovsn.com/api/cats/ \
+```
+### Пример ответа:
+
+```
+[
+    {
+        "id": 1,
+        "name": "Пушистик",
+        "color": "black",
+        "birth_year": 2015,
+        "achievements": [
+            {
+                "id": 1,
+                "achievement_name": "Лучший охотник"
+            },
+            {
+                "id": 2,
+                "achievement_name": "Лучший на выставке"
+            }
+        ],
+        "owner": 1,
+        "age": 10,
+        "image_url": "http://kittygram.vovsn.com/media/cats/images/temp_OACxux0.png",
+        "image": null
+    },
+    {
+        "id": 2,
+        "name": "Mittens",
+        "color": "white",
+        "birth_year": 2018,
+        "achievements": [
+            {
+                "id": 3,
+                "achievement_name": "Самый белый"
+            }
+        ],
+        "owner": 2,
+        "age": 7,
+        "image_url": null,
+        "image": null
+    },
+    ...
+    {
+        "id": 6,
+        "name": "Fuzzy",
+        "color": "orange",
+        "birth_year": 2019,
+        "achievements": [],
+        "owner": 3,
+        "age": 6,
+        "image_url": null,
+        "image": null
+    }
+]
+
+```
