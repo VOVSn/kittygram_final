@@ -129,7 +129,7 @@ curl -X GET \
         ],
         "owner": 1,
         "age": 10,
-        "image_url": "http://kittygram.vovsn.com/media/cats/images/temp_OACxux0.png",
+        "image_url": "http://kittygram.vovsn.com/media/cats/images/temp_ACtyx0.png",
         "image": null
     },
     {
